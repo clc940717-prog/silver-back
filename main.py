@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS strength (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     member_phone TEXT, date TEXT,
     squats INTEGER, bench INTEGER, deadlift INTEGER,
-    press INTEGER, pullup INTEGER, note TEXT DEFAULT "")
+    press INTEGER, pullup INTEGER, note TEXT DEFAULT "");
 
 CREATE TABLE IF NOT EXISTS profile (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
