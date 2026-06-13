@@ -1,0 +1,21 @@
+import os, json
+os.chdir("C:/Users/79018/Documents/体能训练资料库/fitness_web")
+# Generate main.py with Chinese text using unicode escapes
+content = []
+content.append('# -*- coding: utf-8 -*-')
+content.append('import os')
+content.append('from fastapi import FastAPI')
+content.append('from fastapi.responses import HTMLResponse')
+content.append('from fastapi.staticfiles import StaticFiles')
+content.append('from jinja2 import Environment, FileSystemLoader')
+content.append('from typing import Optional')
+content.append('from pydantic import BaseModel')
+content.append('')
+content.append('app = FastAPI(title="Silver Back")')
+content.append('')
+content.append('BASE_DIR = os.path.normpath(os.path.dirname(os.path.abspath(__file__)))')
+content.append('STATIC_DIR = os.path.join(BASE_DIR, "static")')
+content.append('TPL_DIR = os.path.join(BASE_DIR, "templates")')
+content.append('app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")')
+content.append('jinja_env = Environment(loader=FileSystemLoader(TPL_DIR))')
+content.append('')
