@@ -94,7 +94,7 @@ def seed_if_empty():
     c = conn.cursor()
     if c.execute("SELECT COUNT(*) FROM coaches").fetchone()[0] == 0:
         for co in COACHES_DATA:
-            c.execute("INSERT OR IGNORE INTO coaches(phone,name,avatar,badge) VALUES (?,?,?,?)",
+            c.execute("INSERT OR REPLACE INTO coaches(phone,name,avatar,badge) VALUES (?,?,?,?)",
                 (co["phone"], co["name"], co["avatar"], co["badge"]))
     conn.commit()
     conn.close()
