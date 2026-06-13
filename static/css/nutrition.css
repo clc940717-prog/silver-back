@@ -1,0 +1,53 @@
+﻿/* ===== Nutrition - 5:2 Spotlight ===== */
+.nutrition-spotlight{background:linear-gradient(135deg,rgba(255,107,53,0.08),rgba(255,107,53,0.02));border:1px solid rgba(255,107,53,0.2);border-radius:20px;padding:20px;margin-bottom:16px;position:relative;overflow:hidden}
+.nutrition-spotlight::before{content:"5:2";position:absolute;top:-10px;right:-10px;font-size:60px;font-weight:900;color:rgba(255,107,53,0.05);line-height:1;pointer-events:none}
+.nutrition-spotlight-badge{display:inline-flex;align-items:center;gap:4px;background:#ff6b35;color:#fff;font-size:11px;font-weight:600;padding:3px 10px;border-radius:8px;margin-bottom:10px}
+.nutrition-spotlight-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px}
+.nutrition-spotlight-desc{font-size:13px;color:rgba(255,255,255,0.4);margin-bottom:12px;line-height:1.6}
+.nutrition-spotlight-btn{display:inline-flex;align-items:center;gap:4px;padding:8px 18px;border-radius:12px;background:rgba(255,107,53,0.15);border:1px solid rgba(255,107,53,0.2);color:#ff6b35;font-size:13px;font-weight:500;cursor:pointer;transition:all .2s}
+.nutrition-spotlight-btn:active{background:rgba(255,107,53,0.25)}
+
+/* ===== 5:2 Weekly Tracker ===== */
+.f52-tracker{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:16px;margin-bottom:16px}
+.f52-tracker-title{font-size:14px;font-weight:600;color:#fff;margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.f52-tracker-title span{color:rgba(255,255,255,0.3);font-weight:400;font-size:12px}
+.f52-week{display:flex;gap:6px;justify-content:space-between;margin-bottom:8px}
+.f52-day{flex:1;text-align:center;padding:10px 4px;border-radius:12px;background:rgba(255,255,255,0.03);border:2px solid transparent;cursor:pointer;transition:all .2s;font-size:12px;color:rgba(255,255,255,0.4)}
+.f52-day:active{transform:scale(0.95)}
+.f52-day .day-label{display:block;font-size:10px;color:rgba(255,255,255,0.2);margin-bottom:4px}
+.f52-day .day-icon{font-size:16px}
+.f52-day.normal{border-color:rgba(34,197,94,0.2);background:rgba(34,197,94,0.06);color:#22c55e}
+.f52-day.normal .day-label{color:rgba(34,197,94,0.4)}
+.f52-day.fast{border-color:rgba(255,107,53,0.3);background:rgba(255,107,53,0.08);color:#ff6b35}
+.f52-day.fast .day-label{color:rgba(255,107,53,0.4)}
+.f52-day.today{border-color:rgba(255,255,255,0.15)}
+.f52-note{text-align:center;font-size:12px;color:rgba(255,255,255,0.2);margin-top:4px;min-height:18px}
+
+/* ===== Nutrition Guide Cards ===== */
+.nutrition-area{padding:16px 20px;max-width:600px;margin:0 auto}
+.guide-list{display:flex;flex-direction:column;gap:8px;margin-bottom:24px}
+.nutrition-guide-card{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:14px;padding:14px;cursor:pointer;transition:all .2s}
+.nutrition-guide-card:active{background:rgba(255,255,255,0.04)}
+.nutrition-guide-header{display:flex;align-items:center;gap:10px}
+.nutrition-guide-icon{font-size:18px;width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,0.04);border-radius:10px;flex-shrink:0}
+.nutrition-guide-info{flex:1;min-width:0}
+.nutrition-guide-title{font-size:14px;font-weight:600;color:#fff;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nutrition-guide-summary{font-size:12px;color:rgba(255,255,255,0.3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:1px}
+.nutrition-guide-arrow{color:rgba(255,255,255,0.1);font-size:16px;flex-shrink:0;transition:transform .2s}
+.nutrition-guide-card.open .nutrition-guide-arrow{transform:rotate(90deg)}
+.nutrition-guide-content{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.8;white-space:pre-line;padding-top:0;max-height:0;overflow:hidden;transition:all .3s ease}
+.nutrition-guide-card.open .nutrition-guide-content{max-height:1000px;padding-top:12px}
+
+/* ===== Meal Log ===== */
+.meal-section-title{font-size:14px;font-weight:600;color:#22c55e;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.meal-log-area{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:16px;padding:16px;margin-top:4px}
+.meal-input-area{min-height:80px;width:100%;padding:12px 14px;border-radius:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);color:#fff;font-size:14px;outline:none;font-family:inherit;line-height:1.7;margin-bottom:10px;white-space:pre-line}
+.meal-input-area:focus{border-color:#22c55e}
+.meal-input-area:empty:before{content:attr(data-placeholder);color:rgba(255,255,255,0.15)}
+.meal-submit{width:100%;padding:12px;border-radius:12px;background:#22c55e;border:none;color:#fff;font-size:14px;font-weight:600;cursor:pointer}
+.meal-submit:active{background:#16a34a}
+.meal-history-title{font-size:14px;font-weight:600;color:rgba(255,255,255,0.5);margin:20px 0 12px;padding-top:8px}
+.meal-entry{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:12px;padding:12px;margin-bottom:8px}
+.meal-entry-header{display:flex;justify-content:space-between;font-size:12px;color:rgba(255,255,255,0.3);margin-bottom:6px}
+.meal-entry-header .date{color:#fff;font-weight:600}
+.meal-tag{font-size:11px;padding:3px 8px;border-radius:6px;background:rgba(34,197,94,0.08);color:#22c55e;margin-right:4px;display:inline-block;margin-bottom:3px}
