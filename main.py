@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS plans (
 init_db()
 
 # --- Seed data ---
-COACHES_DATA = [{"id": 1, "name": "张教练", "avatar": "🏋️", "badge": "NSCA-CSCS", "phone": "138****1102"}, {"id": 2, "name": "李教练", "avatar": "🏋️", "badge": "ACE-CPT", "phone": "138****1101"}]
+COACHES_DATA = [{"id": 1, "name": "clc", "avatar": "🏋️", "badge": "Silver Back", "phone": "152****1563"}]
 TRANSFORMATIONS = [{"id": 1, "name": "小雅", "avatar": "👩", "period": "3个月", "from_data": "体脂 32%", "to_data": "体脂 24%", "weight_change": "−12斤", "story": "从来不爱运动的办公室白领，从第一次卧推空杆都发抖，到能完成标准引体向上。她说最大的收获不是瘦了，是爱上了流汗的感觉。", "tags": ["减脂", "塑形"], "highlight": "体脂下降8% · 引体向上突破"}, {"id": 2, "name": "阿杰", "avatar": "👨", "period": "6个月", "from_data": "深蹲 40kg", "to_data": "深蹲 120kg", "weight_change": "＋10kg肌", "story": "健身3年一直原地踏步，瓶颈期困扰了他整整一年。经过系统周期化训练和动作模式重建，半年实现成绩翻倍。", "tags": ["增肌", "力量"], "highlight": "深蹲 40→120kg · 三大项突破300kg"}, {"id": 3, "name": "蕾蕾", "avatar": "👩‍💼", "period": "4个月", "from_data": "腹直肌分离2指", "to_data": "完全恢复", "weight_change": "−8斤", "story": "产后6个月来到工作室。从不敢做任何核心动作，到可以完成平板支撑2分钟，腹直肌分离完全闭合。", "tags": ["产后恢复", "康复"], "highlight": "腹直肌闭合 · 核心力量重建"}, {"id": 4, "name": "老陈", "avatar": "👨‍🦰", "period": "8个月", "from_data": "体脂 28%", "to_data": "体脂 18%", "weight_change": "−16斤", "story": "45岁的中年企业家，体检报告亮红灯后下定决心。从最开始走15分钟都喘，到现在每周5练，体检指标全部恢复正常。", "tags": ["减脂", "健康管理"], "highlight": "脂肪肝逆转 · 体检指标全正常"}]
 PRICING = [{"id": 1, "name": "单次体验", "sessions": 1, "price": 399, "unit_price": 399, "tag": "体验", "features": ["1对1 专业指导", "体态评估", "训练计划制定"], "popular": False}, {"id": 2, "name": "10节私教", "sessions": 10, "price": 3599, "unit_price": 360, "tag": "入门", "features": ["1对1 专业指导", "体态评估", "训练计划制定", "饮食建议", "课后小结推送"], "popular": False}, {"id": 3, "name": "20节私教", "sessions": 20, "price": 6399, "unit_price": 320, "tag": "推荐", "features": ["1对1 专业指导", "体态评估", "训练计划制定", "饮食建议", "课后小结推送", "月度体测", "灵活约课"], "popular": True}, {"id": 4, "name": "40节私教", "sessions": 40, "price": 11199, "unit_price": 280, "tag": "超值", "features": ["1对1 专业指导", "体态评估", "训练计划制定", "饮食建议", "课后小结推送", "月度体测", "灵活约课", "无限次自主训练"], "popular": False}]
 NUTRITION_GUIDES = [{"id": 1, "title": "什么是5:2轻断食？", "content": "5:2轻断食是一种间歇性断食法。每周5天正常饮食，选择不连续2天进行低热量摄入（女性约500kcal，男性约600kcal）。研究表明5:2断食法对减脂、胰岝素敏感度提升和细胞自噬有显著效果。"}, {"id": 2, "title": "断食日怎么吃？", "content": "断食日建议摄入高蛋白、高纤维的食物，如鸡胸肉、鱼虾、绿叶蔬菜、蛋类。避免精制碳水和含糖饮料。可以将热量分配到1-2餐中，根据个人习惯选择早餐+晚餐或仅午餐。"}, {"id": 3, "title": "非断食日注意事项", "content": "非断食日不需要严格限制，但建议保持均衡营养。蛋白质摄入建议达到体重kg×1.2-1.6g，保证训练后营养补充。不建议在非断食日暴饮暴食。"}, {"id": 4, "title": "训练日与断食的搭配", "content": "高强度训练日尽量安排在非断食日。若断食日有训练，建议训练前摄入少量快碳（如一根香蕉），训练后立即补充蛋白质。断食日适合进行低强度有氧或恢复性训练。"}, {"id": 5, "title": "适合哪些人群？", "content": "5:2轻断食适合体重正常至超重的健康人群，尤其适合：减脂平台期、工作忙碌难以每日控制饮食者、想要改善代谢健康的人群。不建议孕妇、青少年、糖尿病患者、饮食失调史者使用。"}, {"id": 6, "title": "常见问题", "content": "Q:断食日会很饿吗？\nA:通常2-3周后身体会适应，饥饿感明显下降。\n\nQ:可以喝咖啡和茶吗？\nA:可以，建议不加糖奶。黑咖啡和茶有助于抑制饥饿。\n\nQ:多久能看到效果？\nA:坚持4-6周可以看到明显体脂变化，配合训练效果更佳。"}]
@@ -121,8 +121,8 @@ async def member_login(req: LoginReq):
         return {"success": True, "member": dict(row)}
     # Auto-register
     name = phone[-4:] + "号会员"
-    conn.execute("INSERT INTO members(phone,name,avatar,member_since,total_sessions,trainer) VALUES (?,?,?,?,?,?)",
-        (phone, name, "👤", str(date.today()), 0, "待分配"))
+    conn.execute("INSERT INTO members(phone,name,avatar,member_since,total_sessions,trainer,trainer_phone) VALUES (?,?,?,?,?,?,?)",
+        (phone, name, "👤", str(date.today()), 0, "clc", "152****1563"))
     conn.commit()
     row = conn.execute("SELECT * FROM members WHERE phone=?", (phone,)).fetchone()
     conn.close()
