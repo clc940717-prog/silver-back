@@ -1,0 +1,8 @@
+﻿f=open("C:\\Users\\79018\\Documents\\体能训练资料库\\fitness_web\\main.py","r",encoding="utf-8")
+c=f.read()
+f.close()
+c=c.replace("async def health():",'@app.get("/api/health")\nasync def health():')
+f=open("C:\\Users\\79018\\Documents\\体能训练资料库\\fitness_web\\main.py","w",encoding="utf-8")
+f.write(c)
+f.close()
+print("OK")
