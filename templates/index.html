@@ -151,17 +151,19 @@
             <!-- 基础资料 -->
             <div class="tab-content" id="tab-profile" style="display:none">
                 <div class="profile-area">
-                    <div class="profile-form">
-                        <div class="profile-form-title">📋 我的档案</div>
-                        <div class="profile-input-row"><label>姓名</label><input type="text" id="inputName" placeholder="输入姓名"></div>
-                        <div class="profile-input-row"><label>年龄</label><input type="number" id="inputAge" placeholder="0"><span class="profile-unit">岁</span></div>
-                        <div class="profile-input-row"><label>体重</label><input type="number" id="inputWeight" placeholder="0" step="0.1"><span class="profile-unit">kg</span></div>
-                        <div class="profile-input-row"><label>肌肉量</label><input type="number" id="inputMuscle" placeholder="0" step="0.1"><span class="profile-unit">kg</span></div>
-                        <div class="profile-input-row"><label>脂肪含量</label><input type="number" id="inputFat" placeholder="0" step="0.1"><span class="profile-unit">kg</span></div>
-                        <div class="profile-input-row"><label>体脂率</label><input type="number" id="inputBodyFat" placeholder="0" step="0.1"><span class="profile-unit">%</span></div>
-                        <button class="profile-submit" onclick="handleProfileSubmit()">保存档案</button>
+                    <div class="section-title">📋 基础资料</div>
+                    <div class="profile-card">
+                        <div class="profile-grid">
+                            <div class="profile-field"><label><span class="field-icon">👤</span>姓名</label><input type="text" id="inputName" placeholder="输入姓名" class="profile-input"></div>
+                            <div class="profile-field"><label><span class="field-icon">🕐</span>年龄</label><div class="profile-input-wrap"><input type="number" id="inputAge" placeholder="0" class="profile-input"><span class="profile-unit">岁</span></div></div>
+                            <div class="profile-field"><label><span class="field-icon">⚖️</span>体重</label><div class="profile-input-wrap"><input type="number" id="inputWeight" placeholder="0" step="0.1" class="profile-input"><span class="profile-unit">kg</span></div></div>
+                            <div class="profile-field"><label><span class="field-icon">💪</span>肌肉量</label><div class="profile-input-wrap"><input type="number" id="inputMuscle" placeholder="0" step="0.1" class="profile-input"><span class="profile-unit">kg</span></div></div>
+                            <div class="profile-field"><label><span class="field-icon">💉</span>脂肪含量</label><div class="profile-input-wrap"><input type="number" id="inputFat" placeholder="0" step="0.1" class="profile-input"><span class="profile-unit">kg</span></div></div>
+                            <div class="profile-field"><label><span class="field-icon">🏋️</span>体脂率</label><div class="profile-input-wrap"><input type="number" id="inputBodyFat" placeholder="0" step="0.1" class="profile-input"><span class="profile-unit">%</span></div></div>
+                        </div>
+                        <button class="profile-save-btn" onclick="handleProfileSubmit()">💾 保存资料</button>
+                        <div id="profileDisplay"></div>
                     </div>
-                    <div id="profileDisplay"></div>
                 </div>
             </div>
         </div>
