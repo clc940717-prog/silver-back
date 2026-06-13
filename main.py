@@ -71,7 +71,17 @@ CREATE TABLE IF NOT EXISTS strength (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     member_phone TEXT, date TEXT,
     squats INTEGER, bench INTEGER, deadlift INTEGER,
-    press INTEGER, pullup INTEGER, note TEXT DEFAULT "");
+    press INTEGER, pullup INTEGER, note TEXT DEFAULT "")
+
+CREATE TABLE IF NOT EXISTS profile (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    member_phone TEXT UNIQUE,
+    name TEXT DEFAULT "",
+    age INTEGER,
+    weight REAL,
+    muscle REAL,
+    fat REAL,
+    body_fat REAL);
 
 CREATE TABLE IF NOT EXISTS plans (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -325,41 +335,34 @@ async def delete_photo(req: dict):
     conn.close()
     return {"success": True}
 
-class StrengthAdd(BaseModel):
+class ProfileInfo(BaseModel):
     phone: str
-    squats: Optional[int] = None
-    bench: Optional[int] = None
-    deadlift: Optional[int] = None
-    press: Optional[int] = None
-    pullup: Optional[int] = None
-    note: Optional[str] = ""
+    name: Optional[str] = ""
+    age: Optional[int] = None
+    weight: Optional[float] = None
+    muscle: Optional[float] = None
+    fat: Optional[float] = None
+    body_fat: Optional[float] = None
 
-@app.post("/api/member/strength/add")
-async def add_strength(req: StrengthAdd):
+@app.post("/api/member/profile/save")
+async def save_profile(req: ProfileInfo):
     phone = req.phone[:3] + "****" + req.phone[-4:]
     conn = get_db()
-    conn.execute("INSERT INTO strength(member_phone,date,squats,bench,deadlift,press,pullup,note) VALUES (?,?,?,?,?,?,?,?)",
-        (phone, str(date.today()), req.squats, req.bench, req.deadlift, req.press, req.pullup, req.note))
+    conn.execute("INSERT OR REPLACE INTO profile(member_phone,name,age,weight,muscle,fat,body_fat) VALUES (?,?,?,?,?,?,?)",
+        (phone, req.name, req.age, req.weight, req.muscle, req.fat, req.body_fat))
     conn.commit()
     conn.close()
     return {"success": True}
 
-@app.post("/api/member/strength/list")
-async def list_strength(req: LoginReq):
+@app.post("/api/member/profile/get")
+async def get_profile(req: LoginReq):
     phone = req.phone[:3] + "****" + req.phone[-4:]
     conn = get_db()
-    rows = conn.execute("SELECT * FROM strength WHERE member_phone=? ORDER BY id", (phone,)).fetchall()
+    row = conn.execute("SELECT * FROM profile WHERE member_phone=?", (phone,)).fetchone()
     conn.close()
-    return {"entries": [dict(r) for r in rows]}
+    return {"profile": dict(row) if row else None}
 
-@app.post("/api/member/strength/delete")
-async def delete_strength(req: dict):
-    phone = req["phone"][:3] + "****" + req["phone"][-4:]
-    conn = get_db()
-    conn.execute("DELETE FROM strength WHERE member_phone=? AND id=?", (phone, req.get("entry_id")))
-    conn.commit()
-    conn.close()
-    return {"success": True}
+
 
 class CoachPlanSave(BaseModel):
     phone: str
